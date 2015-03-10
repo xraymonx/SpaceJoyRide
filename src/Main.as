@@ -9,6 +9,7 @@ package
 	 */
 	public class Main extends Sprite 
 	{
+		private var bg:Background;
 		
 		public function Main():void 
 		{
@@ -20,6 +21,9 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
+			
+			bg = new Background();
+			addChild(bg);
 		}
 		
 	}
