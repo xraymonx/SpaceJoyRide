@@ -4,8 +4,6 @@ package
 	import flash.display.Bitmap;	
 
 	
-	public var lives:lives; 
-	
 	public class Background extends Sprite
 	{
 		[Embed(source = "../art/spaceDark.jpg")]
