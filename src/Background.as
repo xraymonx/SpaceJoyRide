@@ -2,10 +2,9 @@ package
 {
 	import flash.display.Sprite;
 	import flash.display.Bitmap;	
-	/**
-	 * ...
-	 * @author lorenzo
-	 */
+
+	
+	public var lives:lives; 
 	
 	public class Background extends Sprite
 	{
@@ -17,6 +16,9 @@ package
 		{
 			imageInstance = new BGImage1();
 			addChild(imageInstance);
+			 
+			
+			
 		}
 		
 	}

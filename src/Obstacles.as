@@ -1,15 +1,14 @@
 package 
 {
-	/**
-	 * ...
-	 * @author Raymon Zoetigheid
-	 */
-	public class Obstacles extends DestructibleObject //extensie van destructibleObjects. 
+	import flash.display.MovieClip;
+	import DestructibleObjects;
+	
+	public class Obstacles extends MovieClip   
 	{
-		public function spawnTimer()
+		public function Obstacles()
 		{
-			
-			
+		
+		
 			
 		}
 	}
