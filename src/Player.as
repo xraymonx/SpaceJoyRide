@@ -8,7 +8,7 @@ package
 	 * ...
 	 * @author Raymon Zoetigheid
 	 */
-	public class Player extends DestructibleObjects
+	public class Player extends Obstacles
 	{
 		
 		private var spaceshipArt:SpaceshipArt; //hier moet de swc komen

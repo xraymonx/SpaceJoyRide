@@ -14,7 +14,7 @@ package
 		{
 			var lives:int = 1; 
 			
-			if (lives = 0)
+			if (lives == 0)
 			{
 				this.removeChild;
 				

@@ -7,7 +7,7 @@ package
 	 * ...
 	 * @author lorenzo
 	 */
-	public class Steen extends Sprite//met animatie<= movieclip
+	public class Steen extends Obstacles//met animatie<= movieclip
 	{
 		[Embed(source = "../art/steen.png")]
 		private var Steen1Art:Class;
