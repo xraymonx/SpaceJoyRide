@@ -12,6 +12,7 @@ package
 	{
 		private var stenen:Array;
 		private var bg:Background;
+		public static var spaceship:Player
 		
 		public function Main():void 
 		{
@@ -28,6 +29,16 @@ package
 			addChild(bg);//zet achtergrond in de game
 			
 			createStenen();
+			
+			spaceship = new Player();
+            addChild(spaceship);
+                       
+                       
+            spaceship.y = stage.stageHeight * 0.5;
+            spaceship.x = stage.stageWidth * 0.5;
+            spaceship.rotation = 90;
+            spaceship.scaleX = 0.3;
+            spaceship.scaleY = 0.3;
 		}
 		
 		private function createStenen():void
