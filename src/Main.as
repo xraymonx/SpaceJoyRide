@@ -1,5 +1,6 @@
 package 
 {
+	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	
@@ -9,6 +10,7 @@ package
 	 */
 	public class Main extends Sprite 
 	{
+		private var stenen:Array;
 		private var bg:Background;
 		
 		public function Main():void 
@@ -23,7 +25,20 @@ package
 			// entry point
 			
 			bg = new Background();
-			addChild(bg);
+			addChild(bg);//zet achtergrond in de game
+			
+			createStenen();
+		}
+		
+		private function createStenen():void
+		{
+			stenen = new Array();
+			
+			for (var i:int = 0; i < 5; i++ )
+			{
+				stenen.push(new Steen());
+				addChildAt(stenen[i],i+1);	
+			}
 		}
 		
 	}
