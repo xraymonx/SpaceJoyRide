@@ -16,7 +16,7 @@ package
 			
 			if (lives == 0)
 			{
-				this.removeChild;
+				
 				
 			}
 		}

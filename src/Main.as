@@ -12,7 +12,9 @@ package
 	{
 		private var stenen:Array;
 		private var bg:Background;
-		public static var spaceship:Player
+		public static var spaceship:Player;
+		private var rLocation:Number; //om de positie van de steen te bepalen of obstakels
+		
 		
 		public function Main():void 
 		{
@@ -35,11 +37,12 @@ package
                        
                        
             spaceship.y = stage.stageHeight * 0.5;
-            spaceship.x = stage.stageWidth * 0.5;
+            spaceship.x = stage.stageWidth * 0.1;
             spaceship.rotation = 90;
             spaceship.scaleX = 0.3;
             spaceship.scaleY = 0.3;
 		}
+		
 		
 		private function createStenen():void
 		{
@@ -48,7 +51,8 @@ package
 			for (var i:int = 0; i < 5; i++ )
 			{
 				stenen.push(new Steen());
-				addChildAt(stenen[i],i+1);	
+				addChildAt(stenen[i], i + 1);	
+				
 			}
 		}
 		
