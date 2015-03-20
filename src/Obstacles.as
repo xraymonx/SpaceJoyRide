@@ -21,7 +21,6 @@ package
 			rPosition = Math.random() * stage.stageHeight; // ik heb geen idee waar ik dit moet plaatsen.. het moet maar 5x gedaan worden en op de verschillende stenen.
 			}	
 			trace(rPosition);
-			
 		}
 	}
 	

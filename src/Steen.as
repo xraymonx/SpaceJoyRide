@@ -23,8 +23,8 @@ package
 			steenArt = new Steen1Art();
 			addChild(steenArt);
 			
-			steenArt.scaleX = 0.2;
-			steenArt.scaleY = 0.2;
+			steenArt.scaleX = 0.175;
+			steenArt.scaleY = 0.175;
 			
 			this.x = 900;
 			this.y = Math.random() * 500;				//rPosition;		//positie bepaling ( en dit ook nog ) 
@@ -44,6 +44,7 @@ package
 			//	this.y = r;
 				
 				//speed = -10; // anders gaat hij heen en weer en dat hoeven we niet. gewoon speed -10 ofzo.
+				
 		}
 				
 		

@@ -48,11 +48,10 @@ package
 		{
 			stenen = new Array();
 			
-			for (var i:int = 0; i < 5; i++ )
+			for (var i:int = 0; i < 2; i++ )
 			{
 				stenen.push(new Steen());
-				addChildAt(stenen[i], i + 1);	
-				
+				addChildAt(stenen[i], i + 1);			
 			}
 		}
 		
