@@ -35,6 +35,8 @@ package
 		private function loop(e:Event):void
 		{
 		this.x += speed;
+		this.rotation += 10;
+		
 		//if (this.x > 500) {										// hier onstaat die gekke glitch
 		//	var r:Number = Math.random() * 800 - this.width;
 			//	//lokale variabele bestaat alleen in deze function
