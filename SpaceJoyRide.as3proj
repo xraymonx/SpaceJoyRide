@@ -53,6 +53,7 @@
   <!-- SWC Libraries -->
   <libraryPaths>
     <element path="art\Ruimteschip.swc" />
+    <element path="art\MinderPoeperino.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

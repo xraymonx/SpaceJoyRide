@@ -9,9 +9,9 @@ package
 	 */
 	public class Steen extends Obstacles  //met animatie<= movieclip
 	{
-		[Embed(source = "../art/steen.png")]
-		private var Steen1Art:Class;
-		private var steenArt:Bitmap;
+		
+		private var Steen1Art:Stone;
+		//private var steenArt:Bitmap;
 		private var speed:Number = -5; // negatief, anders gaat ie naar rechts toe.
 
 		public function Steen() 
@@ -20,11 +20,11 @@ package
 			//{
 			//rPosition = Math.random() * stage.stageHeight; // ik heb geen idee waar ik dit moet plaatsen.. het moet maar 5x gedaan worden en op de verschillende stenen.
 			//}
-			steenArt = new Steen1Art();
-			addChild(steenArt);
+			Steen1Art = new Stone();
+			this.addChild(Steen1Art);
 			
-			steenArt.scaleX = 0.175;
-			steenArt.scaleY = 0.175;
+			Steen1Art.scaleX = 0.175;
+			Steen1Art.scaleY = 0.175;
 			
 			this.x = 900;
 			this.y = Math.random() * 500;				//rPosition;		//positie bepaling ( en dit ook nog ) 
