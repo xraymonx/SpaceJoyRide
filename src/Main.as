@@ -15,7 +15,10 @@ package
 		public static var spaceship:Player;
 		private var rLocation:Number; //om de positie van de steen te bepalen of obstakels
 		
-		
+		public function get deStenen():Array
+		{
+			return stenen;
+		}
 		
 		public function Main():void 
 		{
@@ -51,8 +54,9 @@ package
 			
 			for (var i:int = 0; i < 2; i++ )
 			{
-				stenen.push(new Steen());
-				addChildAt(stenen[i], i + 1);			
+				stenen.push(new Steen(this));
+				addChildAt(stenen[i], i + 1);	
+				
 			}
 		}
 		

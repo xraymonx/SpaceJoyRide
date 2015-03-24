@@ -14,8 +14,9 @@ package
 		//private var steenArt:Bitmap;
 		private var speed:Number = -5; // negatief, anders gaat ie naar rechts toe.
 
-		public function Steen() 
+		public function Steen(main:Main) 
 		{
+			super(main);
 			//for (var i = 0; i < 6; i++) Realiseer me dat dit een script is voor obstacles
 			//{
 			//rPosition = Math.random() * stage.stageHeight; // ik heb geen idee waar ik dit moet plaatsen.. het moet maar 5x gedaan worden en op de verschillende stenen.
@@ -34,9 +35,10 @@ package
 		
 		private function loop(e:Event):void
 		{
-		this.x += speed;
-		this.rotation += 10;
+			this.x += speed;
+			this.rotation += 10;
 		
+
 		//if (this.x > 500) {										// hier onstaat die gekke glitch
 		//	var r:Number = Math.random() * 800 - this.width;
 			//	//lokale variabele bestaat alleen in deze function

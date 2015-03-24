@@ -11,7 +11,7 @@ package
 	 * ...
 	 * @author Raymon Zoetigheid
 	 */
-	public class Player extends Obstacles
+	public class Player extends DestructibleObjects
 	{
 									
 		private var spaceshipArt:SpaceshipArt; //hier moet de swc komen
@@ -21,6 +21,7 @@ package
 		
 		public function Player()
 		{
+			
 			spaceshipArt = new SpaceshipArt();
 			
 			this.addChild(spaceshipArt);
