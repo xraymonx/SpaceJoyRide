@@ -23,7 +23,7 @@ package
 			}	
 			trace(rPosition);
 			*/
-			if (this.x < 500) {
+			if (this.x < 0) {
 				_main.removeChild(this);
 				var s:Array = _main.deStenen;
 				s.splice(s.indexOf(this), 1);

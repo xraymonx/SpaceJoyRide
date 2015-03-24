@@ -28,6 +28,7 @@ package
 		
 		private function init(e:Event = null):void 
 		{
+			
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
 			
@@ -35,6 +36,8 @@ package
 			addChild(bg);//zet achtergrond in de game
 			
 			createStenen();
+			
+			//addEventListener(Event.ENTER_FRAME, createStenen);//voert createStenen uit
 			
 			spaceship = new Player();
             addChild(spaceship);
@@ -48,7 +51,8 @@ package
 		}
 		
 		
-		private function createStenen():void
+		
+		private function createStenen(/*e:Event*/):void
 		{
 			stenen = new Array();
 			
