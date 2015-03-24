@@ -16,6 +16,7 @@ package
 		private var rLocation:Number; //om de positie van de steen te bepalen of obstakels
 		
 		
+		
 		public function Main():void 
 		{
 			if (stage) init();

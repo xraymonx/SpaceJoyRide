@@ -16,6 +16,10 @@ package
 
 		public function Steen() 
 		{
+			//for (var i = 0; i < 6; i++) Realiseer me dat dit een script is voor obstacles
+			//{
+			//rPosition = Math.random() * stage.stageHeight; // ik heb geen idee waar ik dit moet plaatsen.. het moet maar 5x gedaan worden en op de verschillende stenen.
+			//}
 			steenArt = new Steen1Art();
 			addChild(steenArt);
 			
@@ -33,6 +37,13 @@ package
 		this.x += speed;
 		this.rotation += 10;
 		
+		//if (this.x > 500) {										// hier onstaat die gekke glitch
+		//	var r:Number = Math.random() * 800 - this.width;
+			//	//lokale variabele bestaat alleen in deze function
+			//				
+			//	this.y = r;
+				
+				//speed = -10; // anders gaat hij heen en weer en dat hoeven we niet. gewoon speed -10 ofzo.
 				
 		}
 				
