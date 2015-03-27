@@ -11,6 +11,7 @@ package
 	 */
 	public class Main extends Sprite 
 	{
+		private var satellites:Array;
 		private var stenen:Array;
 		private var bg:Background;
 		public static var spaceship:Player;
@@ -38,6 +39,8 @@ package
 			
 			//createStenen();
 			
+			createSatellites();
+			
 			addEventListener(Event.ENTER_FRAME, loop);
 			
 			//addEventListener(Event.ENTER_FRAME, createStenen);//voert createStenen uit
@@ -64,7 +67,7 @@ package
 				counter = 0;
 			}
 			
-			if (spaceship.hitTestObject(stenen)) //steen1art moet hierin.. hopelijk werkt het dan
+			//if (spaceship.hitTestObject(stenen)) //steen1art moet hierin.. hopelijk werkt het dan
 			{
 				//spaceship.destroy();
 				//removeChild(spaceship);
@@ -85,6 +88,16 @@ package
 			}
 		}
 		
+		private function createSatellites():void
+		{
+			satellites = new Array();
+			
+			for (var i:int = 0; i < 2; i++)
+			{
+				satellites.push(new Satellite(this));
+				addChildAt(satellites[i], i + 1);
+			}
+		
+		}
 	}
-	
 }

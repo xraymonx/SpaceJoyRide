@@ -54,6 +54,7 @@
   <libraryPaths>
     <element path="art\Ruimteschip.swc" />
     <element path="art\MinderPoeperino.swc" />
+    <element path="art\stilite.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
