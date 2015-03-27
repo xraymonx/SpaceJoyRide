@@ -11,6 +11,7 @@ package
 	 */
 	public class Main extends Sprite 
 	{
+		private var RandomNumber:int = Math.floor(Math.random() * 60 + 60);//gebruikt in de loop om satellites te spawnen, hij spawnt ze random van 60 tot 120,je moet * het minimale getal en dan het max getal dat je wilt daar moet je het * van af trekken dat is de +(dus 120-60=60.
 		private var satellites:Array;
 		private var stenen:Array;
 		private var bg:Background;
@@ -47,7 +48,8 @@ package
 			
 			spaceship = new Player();
             addChild(spaceship);
-                       
+            
+			
                        
             spaceship.y = stage.stageHeight * 0.5;
             spaceship.x = stage.stageWidth * 0.1;
@@ -62,9 +64,13 @@ package
 		{
 			counter2++;
 			
-			if (counter2 == 120)
+			if (counter2 == RandomNumber)
 			{
 				createSatellites();
+				counter2 = 0;
+			}
+			else if (counter2 > RandomNumber)//de else is er omdat de counter 2 soms boven random number komt(idk how) en dan stoppen de satellites met spawnen#magic
+			{
 				counter2 = 0;
 			}
 		}
