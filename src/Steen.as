@@ -28,7 +28,7 @@ package
 			Steen1Art.scaleY = 0.175;
 			
 			this.x = 900;
-			this.y = Math.random() * 500;				//rPosition;		//positie bepaling ( en dit ook nog ) 
+			this.y = Math.random() * 550;				//rPosition;		//positie bepaling ( en dit ook nog ) 
 			
 			this.addEventListener(Event.ENTER_FRAME, loop); //activeerd de function LOOP
 		}

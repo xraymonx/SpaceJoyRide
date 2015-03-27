@@ -1,5 +1,6 @@
 package 
 {
+	import adobe.utils.CustomActions;
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -35,7 +36,9 @@ package
 			bg = new Background();
 			addChild(bg);//zet achtergrond in de game
 			
-			createStenen();
+			//createStenen();
+			
+			addEventListener(Event.ENTER_FRAME, loop);
 			
 			//addEventListener(Event.ENTER_FRAME, createStenen);//voert createStenen uit
 			
@@ -49,9 +52,19 @@ package
             spaceship.scaleX = 0.3;
             spaceship.scaleY = 0.3;
 		}
-		
-		
-		
+		private var counter:int = 0;
+	
+		private function loop(e:Event):void
+		{
+			counter++;
+			
+			if (counter == 60)
+			{
+				createStenen();
+				counter = 0;
+			}
+			
+		}
 		private function createStenen(/*e:Event*/):void
 		{
 			stenen = new Array();
