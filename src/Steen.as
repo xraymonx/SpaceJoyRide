@@ -35,6 +35,8 @@ package
 		
 		private function loop(e:Event):void
 		{
+			
+			
 			this.x += speed;
 			this.rotation += 10;
 		

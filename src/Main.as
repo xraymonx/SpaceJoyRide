@@ -69,10 +69,10 @@ package
 				createSatellites();
 				counter2 = 0;
 			}
-			else if (counter2 > RandomNumber)//de else is er omdat de counter 2 soms boven random number komt(idk how) en dan stoppen de satellites met spawnen#magic
-			{
-				counter2 = 0;
-			}
+			//else if (counter2 > RandomNumber)//de else is er omdat de counter 2 soms boven random number komt(idk how) en dan stoppen de satellites met spawnen#magic
+			//{
+			//	counter2 = 0;
+			//}
 		}
 		
 		private function loop(e:Event):void
@@ -111,7 +111,7 @@ package
 		{
 			satellites = new Array();
 			
-			for (var i:int = 0; i < 2; i++)
+			for (var i:int = 0; i < 1; i++)
 			{
 				satellites.push(new Satellite(this));
 				addChildAt(satellites[i], i + 1);

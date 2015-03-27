@@ -27,6 +27,12 @@ package
 			this.x = 900;
 			this.y = Math.random() * 550;	
 			
+			this.scaleX = 2;
+			this.scaleY = 2;
+			
+			this.rotation = 90;
+			
+			
 			this.addEventListener(Event.ENTER_FRAME, loop); 
 		}
 		
