@@ -39,8 +39,8 @@ package
 			
 			//createStenen();
 			
-			createSatellites();
-			
+			//createSatellites();
+			addEventListener(Event.ENTER_FRAME, loop2);
 			addEventListener(Event.ENTER_FRAME, loop);
 			
 			//addEventListener(Event.ENTER_FRAME, createStenen);//voert createStenen uit
@@ -56,7 +56,19 @@ package
             spaceship.scaleY = 0.3;
 		}
 		private var counter:int = 0;
+		private var counter2:int = 0;
 	
+		private function loop2(e:Event):void
+		{
+			counter2++;
+			
+			if (counter2 == 120)
+			{
+				createSatellites();
+				counter2 = 0;
+			}
+		}
+		
 		private function loop(e:Event):void
 		{
 			counter++;
@@ -66,6 +78,7 @@ package
 				createStenen();
 				counter = 0;
 			}
+			
 			
 			//if (spaceship.hitTestObject(stenen)) //steen1art moet hierin.. hopelijk werkt het dan
 			{
