@@ -64,7 +64,15 @@ package
 				counter = 0;
 			}
 			
+			if (spaceship.hitTestObject(stenen)) //steen1art moet hierin.. hopelijk werkt het dan
+			{
+				//spaceship.destroy();
+				//removeChild(spaceship);
+				
+			}
 		}
+		
+		
 		private function createStenen(/*e:Event*/):void
 		{
 			stenen = new Array();
