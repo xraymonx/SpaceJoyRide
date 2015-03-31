@@ -4,6 +4,9 @@ package
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.events.TextEvent;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
 	
 	/**
 	 * ...
@@ -17,6 +20,8 @@ package
 		private var bg:Background;
 		public static var spaceship:Player;
 		private var rLocation:Number; //om de positie van de steen te bepalen of obstakels
+		private var scoreboard:Scoreboard;
+		
 		
 		public function get deObstacles():Array
 		{
@@ -28,6 +33,20 @@ package
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
 		}
+		
+		
+		/*	private function Score(e:Event):void
+		{
+				var tf:TextFormat = new TextFormat();
+				tf.size = 30;
+				var myText:TextField = new TextField();
+				addChild(myText);
+				myText.defaultTextFormat = tf;
+				myText.text = score.toString();
+				myText.width = 70;
+				myText.height = 60;
+				myText.textColor = 0xFF0000;
+		}*/
 		
 		private function init(e:Event = null):void 
 		{
@@ -42,6 +61,10 @@ package
 			addEventListener(Event.ENTER_FRAME, loop2);
 			addEventListener(Event.ENTER_FRAME, loop);
 			
+			//addEventListener(Event.ENTER_FRAME, Score);
+			
+			scoreboard = new Scoreboard();
+			addChild(scoreboard);
 			
 			spaceship = new Player();
             addChild(spaceship);
@@ -59,6 +82,7 @@ package
 		
 		private var counter:int = 0;
 		private var counter2:int = 0;
+		public var score:int = 0;
 		private var obstacles:Array;
 	
 		private function loop2(e:Event):void
@@ -88,6 +112,11 @@ package
 				counter = 0;
 			}
 			
+			if (counter == 20 || counter == 40 || counter == 60)
+			{
+				scoreboard.updateScore(1);
+			}
+			
 		}
 		
 		
@@ -105,7 +134,7 @@ package
 		}
 		
 		private function createSatellites():void
-		{addChild(new Steen(this));
+		{
 			
 			for (var i:int = 0; i < 1; i++)
 			{

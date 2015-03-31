@@ -27,12 +27,12 @@ package
 				
 				
 				this.removeEventListener(Event.ENTER_FRAME, PositieBepaling);
-				trace("!!");
+				//trace("!!");
 				_main.removeChild(this); 
 				var s:Array = _main.deObstacles;
 				s.splice(s.indexOf(this), 1);
 				
-				trace("array" + s);
+				//trace("array" + s);
 				
 			}
 		}
