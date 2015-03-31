@@ -24,10 +24,16 @@ package
 			trace(rPosition);
 			*/
 			if (this.x < 0) {
-				_main.removeChild(this);
-				var s:Array = _main.deStenen;
-				s.splice(s.indexOf(this), 1);
+				
+				
 				this.removeEventListener(Event.ENTER_FRAME, PositieBepaling);
+				trace("!!");
+				_main.removeChild(this); 
+				var s:Array = _main.deObstacles;
+				s.splice(s.indexOf(this), 1);
+				
+				trace("array" + s);
+				
 			}
 		}
 	}

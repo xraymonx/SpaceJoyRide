@@ -10,17 +10,17 @@ package
 	 * @author Raymon Zoetigheid
 	 */
 	public class Main extends Sprite 
-	{
-		private var RandomNumber:int = Math.floor(Math.random() * 60 + 60);//gebruikt in de loop om satellites te spawnen, hij spawnt ze random van 60 tot 120,je moet * het minimale getal en dan het max getal dat je wilt daar moet je het * van af trekken dat is de +(dus 120-60=60.
-		private var satellites:Array;
-		private var stenen:Array;
+	{		
+		private var RandomNumber:int = Math.floor(Math.random() * 120 + 60);//gebruikt in de loop om satellites te spawnen, hij spawnt ze random van 60 tot 120,je moet * het minimale getal en dan het max getal dat je wilt daar moet je het * van af trekken dat is de +(dus 120-60=60.
+		//private var satellites:Array;
+		//private var stenen:Array;
 		private var bg:Background;
 		public static var spaceship:Player;
 		private var rLocation:Number; //om de positie van de steen te bepalen of obstakels
 		
-		public function get deStenen():Array
+		public function get deObstacles():Array
 		{
-			return stenen;
+			return obstacles;
 		}
 		
 		public function Main():void 
@@ -38,18 +38,17 @@ package
 			bg = new Background();
 			addChild(bg);//zet achtergrond in de game
 			
-			//createStenen();
-			
-			//createSatellites();
+		
 			addEventListener(Event.ENTER_FRAME, loop2);
 			addEventListener(Event.ENTER_FRAME, loop);
 			
-			//addEventListener(Event.ENTER_FRAME, createStenen);//voert createStenen uit
 			
 			spaceship = new Player();
             addChild(spaceship);
             
-			
+			obstacles = new Array();
+			//stenen = new Array();
+			//satellites = new Array();
                        
             spaceship.y = stage.stageHeight * 0.5;
             spaceship.x = stage.stageWidth * 0.1;
@@ -57,27 +56,31 @@ package
             spaceship.scaleX = 0.3;
             spaceship.scaleY = 0.3;
 		}
+		
 		private var counter:int = 0;
 		private var counter2:int = 0;
+		private var obstacles:Array;
 	
 		private function loop2(e:Event):void
 		{
+			if (contains(spaceship))
+			{	
+				Destroy();				
+			}
 			counter2++;
+			
 			
 			if (counter2 == RandomNumber)
 			{
 				createSatellites();
 				counter2 = 0;
 			}
-			//else if (counter2 > RandomNumber)//de else is er omdat de counter 2 soms boven random number komt(idk how) en dan stoppen de satellites met spawnen#magic
-			//{
-			//	counter2 = 0;
-			//}
 		}
 		
 		private function loop(e:Event):void
 		{
 			counter++;
+			
 			
 			if (counter == 60)
 			{
@@ -85,38 +88,48 @@ package
 				counter = 0;
 			}
 			
-			
-			//if (spaceship.hitTestObject(stenen)) //steen1art moet hierin.. hopelijk werkt het dan
-			{
-				//spaceship.destroy();
-				//removeChild(spaceship);
-				
-			}
 		}
 		
 		
 		private function createStenen(/*e:Event*/):void
 		{
-			stenen = new Array();
 			
 			for (var i:int = 0; i < 2; i++ )
 			{
-				stenen.push(new Steen(this));
-				addChildAt(stenen[i], i + 1);	
+				obstacles.push(new Steen(this));
+				var newIndex:int =  obstacles.length - 1;
+				
+				addChildAt(obstacles[newIndex], newIndex+1);	
 				
 			}
 		}
 		
 		private function createSatellites():void
-		{
-			satellites = new Array();
+		{addChild(new Steen(this));
 			
 			for (var i:int = 0; i < 1; i++)
 			{
-				satellites.push(new Satellite(this));
-				addChildAt(satellites[i], i + 1);
+				obstacles.push(new Satellite(this));
+				var newIndex:int = obstacles.length - 1;
+				addChildAt(obstacles[newIndex], newIndex+1);
 			}
 		
+		}
+		
+			
+		private function Destroy():void
+		{
+		
+			for (var i:int = 0; i < obstacles.length; i++)
+			{
+			if (spaceship.hitTestObject(obstacles[i]))
+				{
+					//addChild(spaceship);
+					removeChild (spaceship);
+				}
+			}
+			
+			
 		}
 	}
 }
