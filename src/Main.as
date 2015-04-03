@@ -1,6 +1,7 @@
 package 
 {
 	import adobe.utils.CustomActions;
+	import flash.automation.StageCaptureEvent;
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -57,7 +58,8 @@ package
 			bg = new Background();
 			addChild(bg);//zet achtergrond in de game
 			
-		
+			//addEventListener(Event.ENTER_FRAME, PlayerPos);
+			
 			addEventListener(Event.ENTER_FRAME, loop2);
 			addEventListener(Event.ENTER_FRAME, loop);
 			
@@ -76,8 +78,8 @@ package
             spaceship.y = stage.stageHeight * 0.5;
             spaceship.x = stage.stageWidth * 0.1;
             spaceship.rotation = 90;
-            spaceship.scaleX = 0.3;
-            spaceship.scaleY = 0.3;
+            spaceship.scaleX = 0.2;
+            spaceship.scaleY = 0.2;
 		}
 		
 		private var counter:int = 0;
@@ -91,6 +93,7 @@ package
 			{	
 				Destroy();				
 			}
+			
 			counter2++;
 			
 			
@@ -105,7 +108,11 @@ package
 		{
 			counter++;
 			
-			
+			if (contains(spaceship))
+			{	
+				Destroy();				
+			}
+
 			if (counter == 60)
 			{
 				createStenen();
@@ -114,7 +121,7 @@ package
 			
 			if (counter == 20 || counter == 40 || counter == 60)
 			{
-				scoreboard.updateScore(1);
+				scoreboard.updateScore(5);
 			}
 			
 		}
@@ -156,9 +163,18 @@ package
 					//addChild(spaceship);
 					removeChild (spaceship);
 				}
-			}
-			
-			
+			}	
 		}
+		
+		/*private function PlayerPos(e:Event):void
+		{
+			if (spaceship.y > stage.stageHeight)
+			{
+				removeChild(spaceship);
+				trace("spaceship removed");
+			}
+		}*/
+		
+		
 	}
 }

@@ -21,7 +21,6 @@ package
 		
 		public function Player()
 		{
-			
 			spaceshipArt = new SpaceshipArt();
 			
 			this.addChild(spaceshipArt);
@@ -69,7 +68,7 @@ package
 				spaceshipArt.rotation = 10;
 			}
 		}
-	
+		
 		
 	}
 		

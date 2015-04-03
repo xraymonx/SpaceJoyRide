@@ -21,8 +21,8 @@ package
 			satelliteArt = new satalite();
 			this.addChild(satelliteArt);
 			
-			satelliteArt.scaleX = 0.175;
-			satelliteArt.scaleY = 0.175;
+			satelliteArt.scaleX = 0.15;
+			satelliteArt.scaleY = 0.15;
 			
 			this.x = 900;
 			this.y = Math.random() * 550;	

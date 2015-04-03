@@ -7,7 +7,7 @@ package
 	public class Obstacles extends DestructibleObjects   
 	{
 		public var rPosition:Number;
-		private var _main:Main;
+		public var _main:Main;
 		public function Obstacles(main:Main)
 		{
 			_main = main;
