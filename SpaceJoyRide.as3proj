@@ -55,6 +55,7 @@
     <element path="art\Ruimteschip.swc" />
     <element path="art\MinderPoeperino.swc" />
     <element path="art\stilite.swc" />
+    <element path="art\BoosteroniPepperoni.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

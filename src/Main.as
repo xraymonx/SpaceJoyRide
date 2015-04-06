@@ -22,11 +22,17 @@ package
 		public static var spaceship:Player;
 		private var rLocation:Number; //om de positie van de steen te bepalen of obstakels
 		private var scoreboard:Scoreboard;
+		private var theo:Eyyoikbentheo;
 		
 		
 		public function get deObstacles():Array
 		{
 			return obstacles;
+		}
+		
+		public function get deBoosts():Array
+		{
+			return boosts
 		}
 		
 		public function Main():void 
@@ -58,10 +64,13 @@ package
 			bg = new Background();
 			addChild(bg);//zet achtergrond in de game
 			
-			//addEventListener(Event.ENTER_FRAME, PlayerPos);
+			theo = new Eyyoikbentheo();
+			addChild(theo);
 			
-			addEventListener(Event.ENTER_FRAME, loop2);
-			addEventListener(Event.ENTER_FRAME, loop);
+			//addEventListener(Event.ENTER_FRAME, PlayerPos);
+			addEventListener(Event.ENTER_FRAME, loop3);
+			//addEventListener(Event.ENTER_FRAME, loop2);
+			//addEventListener(Event.ENTER_FRAME, loop);
 			
 			//addEventListener(Event.ENTER_FRAME, Score);
 			
@@ -71,6 +80,7 @@ package
 			spaceship = new Player();
             addChild(spaceship);
             
+			boosts = new Array();
 			obstacles = new Array();
 			//stenen = new Array();
 			//satellites = new Array();
@@ -84,10 +94,12 @@ package
 		
 		private var counter:int = 0;
 		private var counter2:int = 0;
+		private var counter3:int = 0;
 		public var score:int = 0;
 		private var obstacles:Array;
+		private var boosts:Array;
 	
-		private function loop2(e:Event):void
+		/*private function loop2(e:Event):void
 		{
 			if (contains(spaceship))
 			{	
@@ -102,9 +114,25 @@ package
 				createSatellites();
 				counter2 = 0;
 			}
+		}*/
+		
+		private function loop3(e:Event):void
+		{
+			if (contains(spaceship))
+			{
+				Boosterino();
+			}
+			
+			counter3++;
+			
+			if (counter3 == 60)
+			{
+				createBoost();
+				counter3 = 0;
+			}
 		}
 		
-		private function loop(e:Event):void
+		/*private function loop(e:Event):void
 		{
 			counter++;
 			
@@ -124,7 +152,7 @@ package
 				scoreboard.updateScore(5);
 			}
 			
-		}
+		}*/
 		
 		
 		private function createStenen(/*e:Event*/):void
@@ -152,6 +180,16 @@ package
 		
 		}
 		
+		private function createBoost():void
+		{
+			for (var i :int = 0; i < 1; i++)
+			{
+				boosts.push(new Boost(this));
+				var newIndex:int = boosts.length - 1;
+				addChildAt(boosts[newIndex], newIndex+1);
+			}
+		}
+		
 			
 		private function Destroy():void
 		{
@@ -164,6 +202,17 @@ package
 					removeChild (spaceship);
 				}
 			}	
+		}
+		
+		private function Boosterino():void
+		{
+			for (var i:int = 0; i < boosts.length; i++)
+			{
+				if (spaceship.hitTestObject(boosts[i]))
+				{
+					scoreboard.updateScore(50);
+				}
+			}
 		}
 		
 		/*private function PlayerPos(e:Event):void
