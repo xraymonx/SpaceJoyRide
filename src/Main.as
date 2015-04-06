@@ -69,8 +69,8 @@ package
 			
 			//addEventListener(Event.ENTER_FRAME, PlayerPos);
 			addEventListener(Event.ENTER_FRAME, loop3);
-			//addEventListener(Event.ENTER_FRAME, loop2);
-			//addEventListener(Event.ENTER_FRAME, loop);
+			addEventListener(Event.ENTER_FRAME, loop2);
+			addEventListener(Event.ENTER_FRAME, loop);
 			
 			//addEventListener(Event.ENTER_FRAME, Score);
 			
@@ -99,7 +99,7 @@ package
 		private var obstacles:Array;
 		private var boosts:Array;
 	
-		/*private function loop2(e:Event):void
+		private function loop2(e:Event):void
 		{
 			if (contains(spaceship))
 			{	
@@ -114,7 +114,7 @@ package
 				createSatellites();
 				counter2 = 0;
 			}
-		}*/
+		}
 		
 		private function loop3(e:Event):void
 		{
@@ -132,7 +132,7 @@ package
 			}
 		}
 		
-		/*private function loop(e:Event):void
+		private function loop(e:Event):void
 		{
 			counter++;
 			
@@ -152,7 +152,7 @@ package
 				scoreboard.updateScore(5);
 			}
 			
-		}*/
+		}
 		
 		
 		private function createStenen(/*e:Event*/):void
