@@ -31,8 +31,6 @@ package
 				_main.removeChild(this); 
 				var s:Array = _main.deObstacles;
 				s.splice(s.indexOf(this), 1);
-				var b:Array = _main.deBoosts;
-				b.splice(b.indexOf(this), 1);
 				
 				//trace("array" + s);
 				

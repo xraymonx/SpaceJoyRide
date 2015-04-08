@@ -8,6 +8,8 @@ package
 	import flash.events.TextEvent;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
+	import flash.events.KeyboardEvent;
+	import flash.ui.Keyboard;
 	
 	/**
 	 * ...
@@ -42,20 +44,14 @@ package
 		}
 		
 		
-		/*	private function Score(e:Event):void
-		{
-				var tf:TextFormat = new TextFormat();
-				tf.size = 30;
-				var myText:TextField = new TextField();
-				addChild(myText);
-				myText.defaultTextFormat = tf;
-				myText.text = score.toString();
-				myText.width = 70;
-				myText.height = 60;
-				myText.textColor = 0xFF0000;
-		}*/
 		
 		private function init(e:Event = null):void 
+		{
+			restart();
+			
+			
+		}
+		private function restart():void
 		{
 			
 			removeEventListener(Event.ADDED_TO_STAGE, init);
@@ -67,12 +63,11 @@ package
 			theo = new Eyyoikbentheo();
 			addChild(theo);
 			
-			//addEventListener(Event.ENTER_FRAME, PlayerPos);
 			addEventListener(Event.ENTER_FRAME, loop3);
 			addEventListener(Event.ENTER_FRAME, loop2);
 			addEventListener(Event.ENTER_FRAME, loop);
-			
-			//addEventListener(Event.ENTER_FRAME, Score);
+
+			stage.addEventListener(KeyboardEvent.KEY_DOWN, restarted); //WHY
 			
 			scoreboard = new Scoreboard();
 			addChild(scoreboard);
@@ -82,14 +77,13 @@ package
             
 			boosts = new Array();
 			obstacles = new Array();
-			//stenen = new Array();
-			//satellites = new Array();
                        
             spaceship.y = stage.stageHeight * 0.5;
             spaceship.x = stage.stageWidth * 0.1;
             spaceship.rotation = 90;
             spaceship.scaleX = 0.2;
             spaceship.scaleY = 0.2;
+		
 		}
 		
 		private var counter:int = 0;
@@ -99,13 +93,29 @@ package
 		private var obstacles:Array;
 		private var boosts:Array;
 	
+		
+		private function restarted(e:KeyboardEvent):void
+		{
+			if (!contains(spaceship))
+			{
+				if (e.keyCode == Keyboard.SPACE)
+				{
+					trace("het lukt soort van");
+					restart();
+				}
+				
+			}	
+			
+		}
+		
+		
 		private function loop2(e:Event):void
 		{
 			if (contains(spaceship))
 			{	
 				Destroy();				
 			}
-			
+			//trace("ik doe het!!! ");
 			counter2++;
 			
 			
@@ -113,6 +123,7 @@ package
 			{
 				createSatellites();
 				counter2 = 0;
+				
 			}
 		}
 		
@@ -155,15 +166,17 @@ package
 		}
 		
 		
-		private function createStenen(/*e:Event*/):void
+		private function createStenen():void
 		{
 			
 			for (var i:int = 0; i < 2; i++ )
 			{
+				
+				
 				obstacles.push(new Steen(this));
 				var newIndex:int =  obstacles.length - 1;
 				
-				addChildAt(obstacles[newIndex], newIndex+1);	
+				addChild(obstacles[newIndex]);	
 				
 			}
 		}
@@ -175,7 +188,7 @@ package
 			{
 				obstacles.push(new Satellite(this));
 				var newIndex:int = obstacles.length - 1;
-				addChildAt(obstacles[newIndex], newIndex+1);
+				addChild(obstacles[newIndex]);
 			}
 		
 		}
@@ -186,7 +199,7 @@ package
 			{
 				boosts.push(new Boost(this));
 				var newIndex:int = boosts.length - 1;
-				addChildAt(boosts[newIndex], newIndex+1);
+				addChild(boosts[newIndex]);
 			}
 		}
 		
@@ -215,14 +228,6 @@ package
 			}
 		}
 		
-		/*private function PlayerPos(e:Event):void
-		{
-			if (spaceship.y > stage.stageHeight)
-			{
-				removeChild(spaceship);
-				trace("spaceship removed");
-			}
-		}*/
 		
 		
 	}
