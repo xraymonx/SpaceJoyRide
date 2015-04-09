@@ -18,14 +18,17 @@ package
 	public class Main extends Sprite 
 	{		
 		private var RandomNumber:int = Math.floor(Math.random() * 120 + 60);//gebruikt in de loop om satellites te spawnen, hij spawnt ze random van 60 tot 120,je moet * het minimale getal en dan het max getal dat je wilt daar moet je het * van af trekken dat is de +(dus 120-60=60).
-		//private var satellites:Array;
-		//private var stenen:Array;
 		private var bg:Background;
 		public static var spaceship:Player;
 		private var rLocation:Number; //om de positie van de steen te bepalen of obstakels
 		private var scoreboard:Scoreboard;
 		private var theo:Eyyoikbentheo;
-		
+		private var counter:int = 0;
+		private var counter2:int = 0;
+		public var score:int = 0;
+		private var obstacles:Array;
+		private var boosts:Array;
+	
 		
 		public function get deObstacles():Array
 		{
@@ -34,7 +37,7 @@ package
 		
 		public function get deBoosts():Array
 		{
-			return boosts
+			return boosts;
 		}
 		
 		public function Main():void 
@@ -79,13 +82,7 @@ package
             spaceship.scaleY = 0.2;
 		}
 		
-		private var counter:int = 0;
-		private var counter2:int = 0;
-		private var counter3:int = 0;
-		public var score:int = 0;
-		private var obstacles:Array;
-		private var boosts:Array;
-	
+
 		
 		private function restarted(e:KeyboardEvent):void
 		{
@@ -93,7 +90,7 @@ package
 			{
 				if (e.keyCode == Keyboard.SPACE)
 				{
-					trace("https://www.youtube.com/watch?v=SBCw4_XgouA");
+					//trace("https://www.youtube.com/watch?v=SBCw4_XgouA");
 					restart();
 				}
 			}	
@@ -103,7 +100,6 @@ package
 		{
 			counter++;
 			counter2++;
-			counter3++;
 			
 				if (contains(spaceship))
 				{	
@@ -112,7 +108,8 @@ package
 				}
 
 				if (counter == 60)
-				{
+				{					
+					createBoost();
 					createStenen();
 					counter = 0;
 				}
@@ -127,12 +124,6 @@ package
 					createSatellites();
 					counter2 = 0;
 				}
-			
-				if (counter3 == 60)
-				{
-					createBoost();
-					counter3 = 0;
-				}
 		}
 		
 		private function createStenen():void
@@ -141,8 +132,7 @@ package
 			for (var i:int = 0; i < 2; i++ )
 			{
 				obstacles.push(new Steen(this));
-				var newIndex:int =  obstacles.length - 1;
-				
+				var newIndex:int = obstacles.length - 1;
 				addChild(obstacles[newIndex]);	
 				
 			}
@@ -175,7 +165,7 @@ package
 		
 			for (var i:int = 0; i < obstacles.length; i++)
 			{
-				trace("niks mis met de for loop");
+				//trace("niks mis met de for loop");
 			if (spaceship.hitTestObject(obstacles[i]))
 				{
 					trace("hit");

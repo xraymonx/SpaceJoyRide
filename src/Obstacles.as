@@ -16,13 +16,7 @@ package
 		}
 		public function PositieBepaling(e:Event):void
 		{
-			/*
-			for (var i:int = 0; i < 6; i++)
-			{
-				rPosition = Math.random() * stage.stageHeight; // ik heb geen idee waar ik dit moet plaatsen.. het moet maar 5x gedaan worden en op de verschillende stenen.
-			}	
-			trace(rPosition);
-			*/
+			
 			if (this.x < 0) {
 				
 				
