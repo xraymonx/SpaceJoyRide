@@ -14,9 +14,6 @@ package
 		{
 			imageInstance = new BGImage1();
 			addChild(imageInstance);
-			 
-			
-			
 		}
 		
 	}

@@ -18,7 +18,8 @@ package
 			txtf.font = "cursive";
 			this.defaultTextFormat = txtf;
 			this.text = "Score : 0";
-			this.width = 100;
+			this.width = 150;
+			mouseEnabled = false;
 		}
 		public function updateScore(_score:int):void		
 		{
