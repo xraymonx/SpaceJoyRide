@@ -58,7 +58,7 @@ package
 			
 			bg = new Background();
 			addChild(bg);//zet achtergrond in de game
-			
+			 
 			theo = new Eyyoikbentheo();
 			addChild(theo);
 			
@@ -116,7 +116,10 @@ package
 			
 				if (counter == 20 || counter == 40 || counter == 60)
 				{
+				if (contains(spaceship))
+					{
 					scoreboard.updateScore(5);
+					}
 				}
 			
 				if (counter2 == RandomNumber)
